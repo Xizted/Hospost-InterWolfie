@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InterWolfie - Log in</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  </head>
+  <body>
+    $(if chap-id)
+    <form
+      name="sendin"
+      action="$(link-login-only)"
+      method="post"
+      style="display: none"
+    >
+      <input name="username" type="hidden" />
+      <input name="password" type="hidden" />
+      <input name="dst" value="https://google.com" type="hidden" />
+      <input name="popup" value="true" type="hidden" />
+    </form>
+
+    <script src="/md5.js"></script>
+    <script>
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5(
+          '$(chap-id)' + document.login.password.value + '$(chap-challenge)'
+        );
+        document.sendin.submit();
+        return false;
+      }
+    </script>
+    $(endif)
+
+    <div class="container shadow animated fadeIn">
+      <div class="logo shadow">
+        <img src="img/interwolfie.png" alt="logo" />
+      </div>
+      <form
+        class="form"
+        name="login"
+        action="$(link-login-only)"
+        method="post"
+        $(if=""
+        chap-id=""
+        onsubmit="return doLogin()"
+        $(endif=""
+      >
+        <h1>Inter<span>Wolfie</span></h1>
+        <div class="input">
+          <input
+            name="username"
+            type="text"
+            placeholder="Usuario"
+            class="shadow"
+            maxlength="23"
+          />
+          <img src="img/user.png" class="input-icon shadow" />
+          <p class="input-info $(if error)alert$(endif)">Usuario invalido</p>
+        </div>
+        <div class="input">
+          <input
+            name="password"
+            type="password"
+            placeholder="Contraseña"
+            class="shadow"
+            id="input-password"
+            maxlength="23"
+          />
+          <img src="img/key.png" class="input-icon shadow" />
+          <button id="btn-show" class="btn" type="button">
+            <img src="./img/hide.png" />
+          </button>
+          <p class="input-info $(if error)alert$(endif)">
+            Contraseña Incorrecta
+          </p>
+        </div>
+        <button type="submit" class="shadow login">
+          <img src="img/entrar.png" class="shadow" />
+        </button>
+      </form>
+      <div class="plans">
+        <!-- Plan 1 -->
+        <div class="plan">
+          <div class="plan-icon">
+            <img src="img/two-tickets-blue-front-view-isolated-on-white.png" />
+          </div>
+          <!-- Precio -->
+          <h5>1Hrs: <span>1.5Bs</span></h5>
+          <!-- END Precio -->
+        </div>
+        <!-- End Plan 1 -->
+        <!-- Plan 2 -->
+        <div class="plan">
+          <div class="plan-icon">
+            <img src="img/two-tickets-blue-front-view-isolated-on-white.png" />
+          </div>
+          <!-- Precio -->
+          <h5>2Hrs: <span>3Bs</span></h5>
+          <!-- END Precio -->
+        </div>
+        <!-- END Plan 2 -->
+        <!-- Plan 3 -->
+        <div class="plan">
+          <div class="plan-icon">
+            <img src="img/two-tickets-blue-front-view-isolated-on-white.png" />
+          </div>
+          <!-- Precio -->
+          <h5>3Hrs: <span>4.5Bs</span></h5>
+          <!-- END Precio -->
+        </div>
+        <!-- END Plan 3 -->
+      </div>
+      <div class="info">
+        <img src="img/puerta-inteligente.png" alt="telefono" />
+        <div class="text">
+          <p class="text-info">info:</p>
+          <p class="text-phone_number"><span>0412</span>4647675</p>
+        </div>
+        <img src="img/whatsapp.png" alt="whatsapp" />
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

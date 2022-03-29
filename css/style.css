@@ -1,0 +1,276 @@
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Product Sans'), url(ProductSans-Regular.woff) format('woff');
+}
+
+:root {
+  --background-color: #212121;
+  --primary-color: #fff;
+  --secondary-color: #4aefe9;
+  --black-color: #151515;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* Now 10px = 1rem! */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px; /* px fallback */
+  font-size: 1.6rem; /* default font-size for document */
+  line-height: 1.5; /* a nice line-height */
+  height: 100vh;
+  background-color: var(--background-color);
+  font-family: 'Product Sans', sans-serif;
+  color: var(--primary-color);
+  padding: 1rem;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+h1 span {
+  color: var(--secondary-color);
+}
+
+.shadow {
+  filter: drop-shadow(0px 3px 2.5px rgba(0, 0, 0, 0.7));
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  margin-bottom: -10rem;
+  border: 0.2rem solid var(--secondary-color);
+  border-radius: 100%;
+  width: 20rem;
+  z-index: 2;
+  background-color: var(--background-color);
+}
+
+.logo img {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 0.2rem solid var(--secondary-color);
+  border-radius: 4rem;
+  width: 100%;
+  padding: 9.5rem 2rem 3rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .form {
+    padding: 9.5rem 5rem 3rem 5rem;
+  }
+}
+
+@media (min-width: 425px) {
+  .form {
+    width: 40rem;
+  }
+}
+
+.form h1 {
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+.form input {
+  border: none;
+  margin-bottom: 2rem;
+  background-color: var(--black-color);
+  border: 0.2rem solid var(--secondary-color);
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 1rem 0;
+  color: var(--primary-color);
+  transition: border 0.5s ease;
+}
+
+.form input[name='password'] {
+  margin-bottom: 3rem;
+}
+
+.form input::placeholder {
+  color: var(--primary-color);
+}
+.form input:focus,
+.form input:active,
+.form input:focus-visible,
+.form input:focus-within {
+  border: 0.2rem solid #00d5cd;
+  outline: none;
+}
+
+.input {
+  position: relative;
+  width: 100%;
+}
+
+.input .input-icon {
+  position: absolute;
+  left: 3rem;
+  bottom: 2rem;
+  padding: 1rem;
+  width: 4rem;
+}
+
+.input:last-of-type .input-icon {
+  bottom: 3rem;
+}
+
+.input-info {
+  position: absolute;
+  bottom: 0.05rem;
+  display: none;
+}
+
+.input-info.alert {
+  color: #d50000;
+  display: block;
+}
+
+button.login {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.5rem 6rem;
+  border-radius: 2rem;
+  text-align: center;
+  transition: background-color 1s ease;
+}
+button.login .shadow {
+  width: 2.4rem;
+  filter: invert(1) drop-shadow(0px 3px 2.5px rgba(0, 0, 0, 0.7));
+}
+
+button.login:hover {
+  cursor: pointer;
+  background-color: #00d5cd;
+}
+
+.btn {
+  background-color: transparent;
+  color: var(--secondary-color);
+  position: absolute;
+  border: none;
+  border-radius: 2rem;
+  text-align: center;
+  transition: color 0.5s ease;
+  right: 2rem;
+  top: 1.1rem;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn img {
+  width: 1.6rem;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: #00d5cd;
+}
+
+.plans {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.9rem;
+  border: 0.2rem solid var(--secondary-color);
+  border-radius: 4rem;
+  width: 100%;
+}
+
+@media (min-width: 425px) {
+  .plans {
+    width: 40rem;
+  }
+}
+
+.plan {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+.plan:not(:last-child) {
+  border-bottom: 0.2rem solid black;
+}
+
+.plan .plan-icon {
+  width: 10rem;
+  margin-left: 2rem;
+  margin-right: 3rem;
+}
+
+.plan h5 {
+  font-size: 2rem;
+}
+
+@media (min-width: 375px) {
+  .plan h5 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 425px) {
+  .plan h5 {
+    font-size: 3.5rem;
+  }
+}
+
+.plan h5 span {
+  color: var(--secondary-color);
+}
+
+.info {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.info img {
+  width: 5rem;
+}
+
+.info img:first-child {
+  justify-self: right;
+}
+
+.info .text {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.info .text span {
+  color: var(--secondary-color);
+}
