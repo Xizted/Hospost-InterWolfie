@@ -49,6 +49,10 @@ img,video {
   -webkit-user-drag: none;
 }
 
+video{
+  height: 100%;
+}
+
 h1 span {
   color: var(--secondary-color);
 }

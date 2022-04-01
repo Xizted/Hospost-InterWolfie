@@ -64,7 +64,6 @@ const initQr = async () => {
     videoElement,
     (result) => (window.location.href = result),
     {
-      preferredCamera: 'user',
       highlightScanRegion: true,
     }
   );
