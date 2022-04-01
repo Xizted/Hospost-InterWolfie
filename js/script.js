@@ -5,6 +5,8 @@ const btnShow = document.querySelector('#btn-show');
 const btnImg = document.querySelector('#btn-show img');
 const inputPassword = document.querySelector('#input-password');
 
+let qrScanner;
+
 const showPassword = () => {
   if (inputPassword.type === 'password') {
     inputPassword.setAttribute('type', 'text');
@@ -50,6 +52,7 @@ const closeModal = () => {
   setTimeout(() => {
     modal.parentElement.remove();
   }, 1000);
+  qrScanner.stop();
 };
 
 const initQr = async () => {
@@ -60,11 +63,15 @@ const initQr = async () => {
   }
 
   const videoElement = document.querySelector('video');
-  const qrScanner = new QrScanner(
+  qrScanner = new QrScanner(
     videoElement,
-    (result) => {console.log(result)},
+    (result) => {
+      alert(result);
+    },
     {
+      preferredCamera: 'environment',
       highlightScanRegion: true,
+      highlightCodeOutline: true,
     }
   );
   qrScanner.start();
@@ -75,6 +82,7 @@ const events = () => {
   logo.addEventListener('click', showModalQr);
 };
 
-(() => {
+(async () => {
   events();
+  alert(await QrScanner.listCameras(true));
 })();
