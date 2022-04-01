@@ -62,7 +62,7 @@ const initQr = async () => {
   const videoElement = document.querySelector('video');
   const qrScanner = new QrScanner(
     videoElement,
-    (result) => (window.location.href = result),
+    (result) => {console.log(result)},
     {
       highlightScanRegion: true,
     }
