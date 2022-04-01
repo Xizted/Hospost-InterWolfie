@@ -41,7 +41,8 @@ body {
   overflow-x: hidden;
 }
 
-img,video {
+img,
+video {
   display: block;
   width: 100%;
   height: auto;
@@ -49,7 +50,7 @@ img,video {
   -webkit-user-drag: none;
 }
 
-video{
+video {
   height: 100%;
 }
 
@@ -336,5 +337,5 @@ button.login:hover {
 
 .body-qr {
   margin-top: 2rem;
-  height: 100%;
+  height: 17.5rem;
 }

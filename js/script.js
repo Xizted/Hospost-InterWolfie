@@ -70,6 +70,7 @@ const initQr = async () => {
       preferredCamera: 'environment',
       highlightScanRegion: true,
       highlightCodeOutline: true,
+      maxScansPerSecond: 1,
     }
   );
   qrScanner.start();
