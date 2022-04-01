@@ -66,7 +66,7 @@ const initQr = async () => {
   qrScanner = new QrScanner(
     videoElement,
     (result) => {
-      alert(result);
+      alert(JSON.stringify(result));
     },
     {
       preferredCamera: 'environment',
@@ -84,5 +84,5 @@ const events = () => {
 
 (async () => {
   events();
-  alert(await QrScanner.listCameras(true));
+  alert(JSON.stringify(await QrScanner.listCameras(true),5));
 })();
