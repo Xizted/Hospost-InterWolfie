@@ -65,9 +65,7 @@ const initQr = async () => {
   const videoElement = document.querySelector('video');
   qrScanner = new QrScanner(
     videoElement,
-    (result) => {
-      alert(JSON.stringify(result));
-    },
+    ({ data }) => (window.location.href = data),
     {
       preferredCamera: 'environment',
       highlightScanRegion: true,
@@ -82,7 +80,6 @@ const events = () => {
   logo.addEventListener('click', showModalQr);
 };
 
-(async () => {
+(() => {
   events();
-  alert(JSON.stringify(await QrScanner.listCameras(true),5));
 })();
